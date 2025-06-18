@@ -1,0 +1,17 @@
+{
+    "name": "Online TOTP Generator",
+    "short_name": "TOTP",
+    "description": "Secure TOTP Generator",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4CAF50",
+    "icons": [
+      {
+        "src": "assets/icon-192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ]
+  }
+  

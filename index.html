@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOTP Generator / TOTP 生成器</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="pageTitle">🔐 TOTP Generator</h1>
+            <div class="language-switch">
+                <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" onclick="switchLanguage('zh')">中文</button>
+            </div>
+        </div>
+        
+        <div class="info" id="infoBox">
+            <strong id="supportedTypes">Supported TOTP Types:</strong>
+            <ul>
+                <li><strong id="standardType">Standard TOTP</strong> - <span id="standardDesc">6-digit codes following RFC 6238</span></li>
+                <li><strong id="steamType">Steam Guard</strong> - <span id="steamDesc">5-character codes for Steam platform</span></li>
+                <li><strong id="customType">Custom</strong> - <span id="customDesc">Adjustable digits and time intervals</span></li>
+            </ul>
+        </div>
+        
+        <div class="input-group">
+            <label for="secretKey" id="secretLabel">Secret Key (Base32 encoded):</label>
+            <input type="text" id="secretKey" placeholder="JBSWY3DPEHPK3PXP">
+        </div>
+        
+        <div class="input-group">
+            <label for="totpType" id="typeLabel">TOTP Type:</label>
+            <select id="totpType">
+                <option value="standard" id="standardOption">Standard TOTP (6 digits)</option>
+                <option value="steam" id="steamOption">Steam Guard (5 characters)</option>
+                <option value="custom" id="customOption">Custom</option>
+            </select>
+        </div>
+        
+        <div id="customOptions" style="display: none;">
+            <div class="input-group">
+                <label for="digits" id="digitsLabel">Digits:</label>
+                <input type="number" id="digits" min="4" max="10" value="6">
+            </div>
+            <div class="input-group">
+                <label for="period" id="periodLabel">Time Period (seconds):</label>
+                <input type="number" id="period" min="15" max="300" value="30">
+            </div>
+        </div>
+        
+        <button onclick="generateTOTP()" id="generateBtn">Generate TOTP</button>
+        
+        <div id="result" style="display: none;">
+            <div class="result">
+                <div class="totp-code" id="totpCode">------</div>
+                <div style="text-align: center; color: #666;">
+                    <span id="timeLeft">30</span> <span id="secondsText">seconds until refresh</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="error" style="display: none;"></div>
+        
+        <footer class="footer">
+            <p>
+                <a href="https://github.com/yourusername/totp-generator" target="_blank">
+                    View on GitHub
+                </a> | 
+                Made with ❤️ for security
+            </p>
+        </footer>
+    </div>
+
+    <script src="assets/js/totp.js"></script>
+</body>
+</html>
