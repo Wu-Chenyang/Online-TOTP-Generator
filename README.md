@@ -27,7 +27,7 @@ A secure, multilingual TOTP (Time-based One-Time Password) generator that runs e
 ## 🚀 Quick Start / 快速开始
 
 ### Online Access / 在线访问
-Visit: [https://wu-chenyang.github.io/online-totp-generator](https://wu-chenyang.github.io/online-totp-generator)
+Visit: [https://wu-chenyang.github.io/Online-TOTP-Generator](https://wu-chenyang.github.io/Online-TOTP-Generator)
 
 ### Local Usage / 本地使用
 1. Clone this repository / 克隆此仓库
